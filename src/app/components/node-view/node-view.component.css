@@ -1,14 +1,13 @@
-.example-box {
+.node-frame {
   width: 200px;
-  height: 200px;
+  height: 400px;
   border: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
   cursor: move;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: #fff;
+  text-align: left;
+  background: rgb(117, 117, 117);
   border-radius: 4px;
   position: relative;
   z-index: 1;
@@ -16,6 +15,18 @@
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
               0 2px 2px 0 rgba(0, 0, 0, 0.14),
               0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.node-heading {
+  height: 20px;
+  width: 100%;
+  border-bottom: 2px solid lightgray;
+  color: gainsboro;
+  background: gray;
+  padding: 4px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+  0 2px 2px 0 rgba(0, 0, 0, 0.14),
+  0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 .example-box:active {
