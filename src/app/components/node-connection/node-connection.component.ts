@@ -61,11 +61,11 @@ export class NodeConnectionComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.sourcePosition = this.connection.source.position;
-    this.targetPosition = this.connection.target.position;
+    this.sourcePosition = {x: 250, y:150};
+    this.targetPosition = {x: 850, y: 750};
     this.update();
 
-    this.draggingService.getObservable(this.connection.source.node.id).subscribe( position =>
+    this.draggingService.getObservable(this.connection.sourceId).subscribe( position =>
       {
         if(position != undefined)
         {
@@ -76,7 +76,7 @@ export class NodeConnectionComponent implements OnInit {
       }
       )
 
-    this.draggingService.getObservable(this.connection.target.node.id).subscribe(position =>
+    this.draggingService.getObservable(this.connection.targetId).subscribe(position =>
         {
           if(position != undefined)
           {

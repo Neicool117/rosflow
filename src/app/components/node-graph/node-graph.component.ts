@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NodeViewModel} from '../../models/NodeViewModel';
+import {Node} from '../../models/Node';
 import { Connection } from 'src/app/models/Connection';
 
 @Component({
@@ -9,16 +9,16 @@ import { Connection } from 'src/app/models/Connection';
 })
 export class NodeGraphComponent implements OnInit {
 
-  nodes:NodeViewModel[];
+  nodes:Node[];
   connections:Connection[];
 
   constructor() { }
 
   ngOnInit(): void {
+
     this.nodes = 
     [
       {
-        node:{
           id:0,
           name:"Cool Node",
           package:"Nice Package",
@@ -50,15 +50,9 @@ export class NodeGraphComponent implements OnInit {
               messageType:"String"
             }
           ]
-        },
-        position: {
-          x:220,
-          y:230
-        }
       },
 
       {
-        node:{
           id:1,
           name:"Other cool node",
           package:"Nice Package",
@@ -90,18 +84,15 @@ export class NodeGraphComponent implements OnInit {
               messageType:"String"
             }
           ]
-        },
-        position: {
-          x:800,
-          y:450
-        }
       }
     ]
 
     this.connections = [
       {
-        source: this.nodes[0],
-        target: this.nodes[1]
+        sourceId: this.nodes[0].id,
+        targetId: this.nodes[1].id,
+        sourceTopic: this.nodes[0].publishedTopics[0],
+        targetTopic: this.nodes[1].subscribedTopics[0]
       }
     ]
   }

@@ -1,7 +1,9 @@
-import { NodeViewModel } from '../models/NodeViewModel' 
+import { Topic } from '../models/Topic' 
 
 export class Connection
 {
-    source:NodeViewModel;
-    target:NodeViewModel;
+    sourceId:number;
+    targetId:number;
+    targetTopic:Topic;
+    sourceTopic:Topic;
 }
