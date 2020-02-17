@@ -6,19 +6,21 @@ import { AppComponent } from './app.component';
 import { NodeGraphComponent } from './components/node-graph/node-graph.component';
 import { NodeViewComponent } from './components/node-view/node-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { AngularDraggableModule } from 'angular2-draggable';
+import { NodeConnectionComponent } from './components/node-connection/node-connection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NodeGraphComponent,
-    NodeViewComponent
+    NodeViewComponent,
+    NodeConnectionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DragDropModule
+    AngularDraggableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

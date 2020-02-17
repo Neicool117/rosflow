@@ -1,29 +1,32 @@
 .node-frame {
-  width: 200px;
-  height: 400px;
+  z-index: 2;
+  width: 250px;
   border: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
-  cursor: move;
-  display: flex;
   justify-content: center;
   text-align: left;
   background: rgb(117, 117, 117);
   border-radius: 4px;
   position: relative;
   z-index: 1;
-  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
               0 2px 2px 0 rgba(0, 0, 0, 0.14),
               0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 .node-heading {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select:none;
+  user-select:none;
+  -o-user-select:none;
+  cursor: move;
   height: 20px;
-  width: 100%;
+  width: auto;
   border-bottom: 2px solid lightgray;
   color: gainsboro;
   background: gray;
-  padding: 4px;
+  padding: 10px 4px; 
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
   0 2px 2px 0 rgba(0, 0, 0, 0.14),
   0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -33,4 +36,17 @@
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
               0 8px 10px 1px rgba(0, 0, 0, 0.14),
               0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.input-topic
+{
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select:none;
+  user-select:none;
+  -o-user-select:none;
+  width: auto;
+  color: gainsboro;
+  padding: 15px 5px;
+  border-bottom: 2px solid lightgray;
 }

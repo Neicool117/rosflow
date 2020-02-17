@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Node } from 'src/app/models/Node';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { NodeViewModel } from 'src/app/models/NodeViewModel';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { Position } from 'src/app/models/Position';
+import { DraggingService } from 'src/app/services/dragging.service';
 
 @Component({
   selector: 'app-node-view',
@@ -7,11 +10,20 @@ import { Node } from 'src/app/models/Node';
   styleUrls: ['./node-view.component.css']
 })
 export class NodeViewComponent implements OnInit {
-  @Input() node:Node;
+  @Input() nodeview:NodeViewModel;
+  private positionObservable:BehaviorSubject<Position>;
 
-  constructor() { }
+  constructor(private draggingService: DraggingService) {
+   }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.positionObservable = new BehaviorSubject(this.nodeview.position);
+    this.draggingService.register(this.nodeview.node.id, this.positionObservable.asObservable());
   }
 
+  onMove(event)
+  {
+    this.positionObservable.next({x: event.x, y:event.y}); 
+  }
 }

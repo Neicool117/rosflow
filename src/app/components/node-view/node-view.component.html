@@ -1,6 +1,9 @@
-<div class="node-frame" cdkDrag>
+<div class="node-frame" ngDraggable [position]="nodeview.position" (movingOffset)="onMove($event)">
     <div class="node-heading">
-        {{node.name}}
+        {{nodeview.node.name}}
+    </div>
+    <div class="input-topic" unselectable="on" *ngFor="let inputTopic of nodeview.node.subscribedTopics">
+        {{inputTopic.name}}:{{inputTopic.messageType}}
     </div>
 </div>
   
