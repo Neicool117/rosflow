@@ -1,7 +1,7 @@
 .node-frame {
   z-index: 2;
   width: 250px;
-  border: solid 1px #ccc;
+  /* border: solid 1px #ccc; */
   color: rgba(0, 0, 0, 0.87);
   justify-content: center;
   text-align: left;
@@ -12,6 +12,9 @@
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
               0 2px 2px 0 rgba(0, 0, 0, 0.14),
               0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 15px;
+  padding-bottom: 4px;
 }
 
 .node-heading {
@@ -23,7 +26,9 @@
   cursor: move;
   height: 20px;
   width: auto;
+  border: solid 1px #ccc;
   border-bottom: 2px solid lightgray;
+  border-radius: 4px 4px 0 0;
   color: gainsboro;
   background: gray;
   padding: 10px 4px; 
@@ -38,7 +43,54 @@
               0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-.input-topic
+.node-topics-wrapper
+{
+  /* border: 1px solid gray; */
+  padding-top: 10px;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.topic-list
+{
+  flex: 1;
+  width: 49%;
+}
+
+.topic-list.output
+{
+  /* border-left: 1px solid #ccc; */
+}
+
+.topic-list.input
+{
+
+}
+
+.topic-list-separator
+{
+  flex: 0 0 1px;
+  background: gray;
+  display: block;
+  margin: 0 auto;
+}
+
+.topic-separator
+{
+  width: 50%;
+  margin: 0 auto;
+  height: 1px;
+  background: rgb(126,126,126);
+  background: linear-gradient(90deg, rgba(126,126,126,0) 0%, rgba(255,255,255,0.2) 35%, rgba(255,255,255,0.2) 65%, rgba(140,140,140,0) 100%);
+}
+
+.topic-list .topic-separator:last-of-type
+{
+  display: none;
+}
+
+.topic
 {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -47,6 +99,25 @@
   -o-user-select:none;
   width: auto;
   color: gainsboro;
-  padding: 15px 5px;
-  border-bottom: 2px solid lightgray;
+  padding: 5px 5px;
+  vertical-align: middle;
+  /* border-bottom: 2px solid lightgray; */
+  height: 25px;
+  line-height: 25px;
+}
+
+.topic.input
+{
+  border-left: 5px solid grey;
+}
+
+.topic.output
+{
+  border-right: 5px solid grey;
+  text-align: right;
+}
+
+.topic:hover
+{
+  border-color: lightgray;
 }

@@ -2,8 +2,25 @@
     <div class="node-heading">
         {{node.name}}
     </div>
-    <div class="input-topic" unselectable="on" *ngFor="let inputTopic of node.subscribedTopics">
-        {{inputTopic.name}}:{{inputTopic.messageType}}
+    <div class="node-topics-wrapper">
+        <div class="topic-list input">
+            <ng-template let-inputTopic ngFor [ngForOf]="node.subscribedTopics">
+                <div class="input topic" unselectable="on">
+                    {{inputTopic.name}}:{{inputTopic.messageType}}
+                </div>
+                <div class="topic-separator"></div>
+            </ng-template>
+        </div>
+        <div class="topic-list-separator"></div>
+        <div class="topic-list output">
+            <ng-template let-outputTopic ngFor [ngForOf]="node.publishedTopics">
+                <div class="output topic" unselectable="on">
+                    {{outputTopic.name}}:{{outputTopic.messageType}}
+                </div>
+                <div class="topic-separator"></div>
+            </ng-template>
+        </div>
     </div>
+    
 </div>
   
