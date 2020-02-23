@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu, MenuItem, dialog} = require('electron')
 const url = require("url");
 const path = require("path");
 
@@ -26,6 +26,30 @@ function createWindow () {
   mainWindow.on('closed', function () {
     mainWindow = null
   })
+
+  const menuTemplate = [
+    { 
+      id: 'fileMenu', 
+      role: 'fileMenu' 
+    },
+    { role: 'editMenu' },
+    { role: 'viewMenu' },
+    { role: 'windowMenu' }
+  ];
+
+  menu = Menu.buildFromTemplate(menuTemplate);
+  menu.getMenuItemById('fileMenu').submenu.insert(
+    0,
+    new MenuItem({
+      label: 'Open',
+      click: () => dialog.showOpenDialog({ properties: ['openFile'] }).then(
+        result => {
+          console.log(result.canceled)
+          console.log(result.filePaths)
+        })
+    })
+  );
+  Menu.setApplicationMenu(menu);
 }
 
 app.on('ready', createWindow)
